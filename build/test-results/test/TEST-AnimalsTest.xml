@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AnimalsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-07-10T15:01:53" hostname="tonui-HP-ProBook-450-G5" time="0.299">
+  <properties/>
+  <testcase name="getAllAnimals_GetsAllAnimalsFromDatabase" classname="AnimalsTest" time="0.246"/>
+  <testcase name="save_savesAnimalToDatabase" classname="AnimalsTest" time="0.033"/>
+  <testcase name="Animals_InstantiatesAnimalsCorrecttly_true" classname="AnimalsTest" time="0.007"/>
+  <testcase name="equals_returnsTrueIfNamesAreSame_true" classname="AnimalsTest" time="0.006"/>
+  <testcase name="getName_InstantiatesWithNameCorrectly" classname="AnimalsTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
