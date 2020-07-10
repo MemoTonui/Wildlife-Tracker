@@ -1,9 +1,15 @@
+import org.sql2o.Sql2o;
+
+import org.sql2o.*;
+
+import java.util.List;
 import java.util.Objects;
 
 public class Rangers {
 
     private  String email;
     private  String name;
+    private int id;
 
 
     public Rangers(String name, String email) {
@@ -19,6 +25,14 @@ public class Rangers {
         return email;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     //Checks if two names and their email addresses are similar
     @Override
     public boolean equals(Object ranger2){
@@ -29,6 +43,23 @@ public class Rangers {
             return this.getName().equals(newRanger.getName()) &&
                     this.getEmail().equals(newRanger.getEmail());
         }
+    }
+
+    //Method For Saving into Database
+    public  void  save(){
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO rangers(name, email) VALUES (:name,:email)";
+            this.id= (int) con.createQuery(sql,true).addParameter("name",this.name).addParameter("email",this.email).executeUpdate().getKey();
+        }
+    }
+
+    //Method For getting all rangers
+    public static List<Rangers> getAllRangers() {
+        String sql = "SELECT * FROM rangers";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Rangers.class);
+        }
+
     }
 
 }

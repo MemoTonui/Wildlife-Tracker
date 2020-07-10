@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="RangersTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-10T11:42:25" hostname="tonui-HP-ProBook-450-G5" time="0.001">
+<testsuite name="RangersTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-07-10T13:53:32" hostname="tonui-HP-ProBook-450-G5" time="0.214">
   <properties/>
-  <testcase name="Rangers_InstantiatesWithEmail_String" classname="RangersTest" time="0.001"/>
+  <testcase name="getAllRangers_GetsAllRAngersInDatabase" classname="RangersTest" time="0.136"/>
+  <testcase name="Rangers_InstantiatesWithName_String" classname="RangersTest" time="0.004"/>
+  <testcase name="Rangers_InstantiatesWithEmail_String" classname="RangersTest" time="0.004"/>
+  <testcase name="Rangers_InstantiatesCorrectly_true" classname="RangersTest" time="0.004"/>
+  <testcase name="save_InsertsRangerIntoDatabase_true" classname="RangersTest" time="0.031"/>
+  <testcase name="equals_returnsTrueIfNameAndEmailAreSame_true" classname="RangersTest" time="0.006"/>
+  <testcase name="save_AssignsIdToObject" classname="RangersTest" time="0.027"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -35,6 +35,25 @@ public class RangersTest {
     public void save_InsertsRangerIntoDatabase_true() {
         Rangers ranger = new Rangers("Linda","linda@linda.com");
         ranger.save();
-        assertTrue(Rangers.getALlRangers.get(0).equals(ranger));
+        assertTrue(Rangers.getAllRangers().get(0).equals(ranger));
+    }
+
+    @Test
+    public void getAllRangers_GetsAllRAngersInDatabase() {
+        Rangers ranger = new Rangers("Linda","linda@linda.com");
+        ranger.save();
+        Rangers ranger2 = new Rangers("Linda","linda@linda.com");
+        ranger2.save();
+        assertTrue(Rangers.getAllRangers().get(0).equals(ranger));
+        assertTrue(Rangers.getAllRangers().get(1).equals(ranger2));
+    }
+
+    @Test
+    public void save_AssignsIdToObject() {
+        Rangers ranger = new Rangers("Linda","linda@linda.com");
+        ranger.save();
+        Rangers ranger3 = Rangers.getAllRangers().get(0);
+        assertEquals(ranger3.getId(),ranger.getId());
+
     }
 }
