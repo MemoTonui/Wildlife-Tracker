@@ -3,11 +3,17 @@ import org.sql2o.Connection;
 import java.util.List;
 
 public class Animals {
-    private String animalName;
-    private int id;
+    public   int rangerId;
+    public String animalName;
+    public int id;
 
-    public Animals(String animalName) {
+    public Animals(String animalName,int rangerId) {
         this.animalName = animalName;
+        this.rangerId =rangerId;
+    }
+
+    public int getRangerId() {
+        return rangerId;
     }
 
     public String getName() {
