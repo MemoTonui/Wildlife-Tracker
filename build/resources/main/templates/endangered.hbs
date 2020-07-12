@@ -2,32 +2,35 @@
 {{/partial}}
 {{#partial "content"}}
 <div class="container">
-    <h2>UNENDANGERED SPECIES SIGHTINGS</h2> <hr>
+<h2>ENDANGERED SPECIES SIGHTINGS</h2> <hr>
     <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Animal id</th>
       <th scope="col">Animal Name</th>
       <th scope="col">Zone Sighted</th>
+      <th scope="col">Age</th>
+      <th scope="col">Health</th>
       
     </tr>
   </thead>
-  {{#if animals}}
+  {{#if endangered}}
   <tbody>
-      {{#each animals}}
+      {{#each endangered}}
     <tr>
       <th scope="row">{{id}}</th>
       <td>{{animalname}}</td>
       <td>{{location}}</td>
+      <td>{{age}}</td>
+      <td>{{health}}</td>
+      
       
     </tr>
 {{/each}}
   </tbody>
   {{/if}}
     </table>
-
 </div>
-
 {{/partial}}
 
 {{> layout.hbs}}

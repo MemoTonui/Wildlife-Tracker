@@ -3,21 +3,23 @@ import org.sql2o.Connection;
 import java.util.List;
 
 public class Animals {
-    public   int rangerId;
-    public String animalName;
-    public int id;
 
-    public Animals(String animalName,int rangerId) {
-        this.animalName = animalName;
-        this.rangerId =rangerId;
+    public String animalname;
+    public int id;
+    public String location;
+
+    public Animals(String animalname,String location) {
+        this.animalname = animalname;
+        this.location = location;
+
     }
 
-    public int getRangerId() {
-        return rangerId;
+    public String getLocation() {
+        return location;
     }
 
     public String getName() {
-        return animalName;
+        return animalname;
     }
 
     public int getId() {
@@ -38,10 +40,10 @@ public class Animals {
         }
     }
 
-    public void save(){
+    public void save(String animalName,String location){
         try(Connection con =DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (animalName) VALUES (:animalName)";
-            this.id = (int) con.createQuery(sql,true).addParameter("animalName",this.animalName).executeUpdate().getKey();
+            String sql = "INSERT INTO animals (animalname,location) VALUES (:animalname,:location)";
+            this.id = (int) con.createQuery(sql,true).addParameter("animalname",this.animalname).addParameter("location",this.location).executeUpdate().getKey();
 
         }
 
@@ -52,6 +54,15 @@ public class Animals {
             return con.createQuery(sql).executeAndFetch(Animals.class);
         }
 
+    }
+
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM animals WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeUpdate();
+        }
     }
 
 }

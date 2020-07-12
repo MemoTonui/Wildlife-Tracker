@@ -1,12 +1,12 @@
-App.java
- App
+Location.java
+ Location
 DB.java
  DB
+Rangers.java
+ Rangers
 EndangeredAnimals.java
  EndangeredAnimals
 Animals.java
  Animals
-Rangers.java
- Rangers
-Location.java
- Location
+App.java
+ App
