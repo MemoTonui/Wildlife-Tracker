@@ -67,6 +67,13 @@ public class AnimalsTest {
         Timestamp savedSight = Animals.find(animal.getId()).getSightingtime();
         Timestamp rightNow = new Timestamp(new Date().getTime());
         assertEquals(rightNow.getDay(), savedSight.getDay());
+    }
 
+    @Test
+    public void find_returnsCorrectAnimal_true() {
+        Animals animal = new Animals("Monkey", "Zone A");
+        animal.save("Monkey", "Zone A");
+        Animals found =Animals.find(animal.getId());
+        assertEquals(animal,found);
     }
 }
