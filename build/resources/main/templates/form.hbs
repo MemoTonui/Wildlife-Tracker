@@ -1,0 +1,81 @@
+{{#partial "title" }}
+{{/partial}}
+{{#partial  "content" }}
+<div class="row">
+  <!--Unendangered Species-->
+    <div class="col-md-5">
+  <form action="/animals" method="POST" style="color: black;" class="con">
+    <h3 style="color: black;" >Unendangered Species</h3> <hr>
+    <input style="color: black;" type="text" placeholder="Enter The Animal's name" name="name" required>
+   <select class="form-control">
+  <option style="color: black;">--Select a Zone of sighting--</option>
+  <option style="color: black;" value="zone a">ZONE A</option>
+  <option style="color: black;" value="zone b">ZONE B</option>
+  <option style="color: black;" value="zone c">ZONE C</option>
+  <option style="color: black;" value="zone d">ZONE D</option>
+  <option style="color: black;" value="zone e">ZONE E</option>
+  <option style="color: black;" value="zone f">ZONE F</option>
+</select>  
+{{#if rangers}}
+<select class="form-control">
+  
+  <option style="color: black;">--Name of Ranger--</option> 
+  {{#each rangers}}
+  <option style="color: black;">{{id}}. {{name}}</option>
+  {{/each}}
+</select> 
+{{/if}}
+
+
+    <button type="submit" style="width: 100%;margin-left:none;" class="btn btn-block btn-dark">Add Animal</button>
+  </form>
+    </div>
+
+
+    <!--Endangered Species-->
+    <div class="col-md-4">
+  <form action="/animals" method="POST" style="color: black;" class="con">
+    <h3 style="color: black;" >Endangered Species</h3> <hr>
+    <input style="color: black;" type="text" placeholder="Enter The Animal's name" name="name" required>
+     <select class="form-control">
+  <option style="color: black;">--Select age of animal--</option>
+  <option style="color: black;" value="newborn">New Born</option>
+  <option style="color: black;" value="young">Young</option>
+  <option style="color: black;" value="adult">Adult</option>
+     </select>
+    <select class="form-control">
+  <option style="color: black;">--Health Status--</option>
+  <option style="color: black;" value="healthy">Healthy</option>
+  <option style="color: black;" value="ill">Ill</option>
+  <option style="color: black;" value="okay">Okay</option>
+     </select>
+    <select class="form-control">
+  <option style="color: black;">--Select a Zone of sighting--</option>
+  <option style="color: black;" value="zone a">ZONE A</option>
+  <option style="color: black;" value="zone b">ZONE B</option>
+  <option style="color: black;" value="zone c">ZONE C</option>
+  <option style="color: black;" value="zone d">ZONE D</option>
+  <option style="color: black;" value="zone e">ZONE E</option>
+  <option style="color: black;" value="zone f">ZONE F</option>
+</select> 
+{{#if rangers}}
+<select class="form-control"> 
+  <option style="color: black;">--Name of Ranger--</option> 
+  {{#each rangers}}
+  <option style="color: black;">{{id}}. {{name}}</option>
+  {{/each}}
+</select> 
+{{/if}}
+
+
+    <button type="submit" style="width: 100%;margin-left:none;" class="btn btn-block btn-dark">Add Endangered Animal</button>
+  </form>
+
+
+    </div>
+
+
+</div>
+
+{{/partial}}
+{{> layout.hbs}}

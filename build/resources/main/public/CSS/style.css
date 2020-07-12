@@ -46,7 +46,7 @@ body{
 }
 .btn {
     width: 40%;
-    margin-left: 60px;
+    margin-left: 0px;
     margin-top: 50px;
 }
 a:hover{
@@ -55,4 +55,34 @@ a:hover{
     text-decoration: unset;
     letter-spacing: 0.2em;
 }
+.con {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 600px;
+    padding: 16px;
+    background-color: white;
+    color: black;
+  }
+  
+  /* Full-width input fields */
+  input[type=text],select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus,select:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .card{
+      margin-top: 100px;
+      float: left;
+      margin-right: 30px;
+  }
+  
+  
 
