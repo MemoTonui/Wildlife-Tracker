@@ -55,15 +55,18 @@ public class Animals {
         try(Connection con =DB.sql2o.open()) {
             String sql = "INSERT INTO animals (animalname,location,sightingtime) VALUES (:animalname,:location,now())";
             this.id = (int) con.createQuery(sql, true).addParameter("animalname", this.animalname).addParameter("location", this.location).executeUpdate().getKey();
+        } catch ( NullPointerException ex){
+            System.out.println("Null Pointer Caught");
         }
         }
 
     }
-    public static List<Animals> getAllAnimals(){
-        String sql= "SELECT * FROM animals";
-        try(Connection con =DB.sql2o.open()){
+    public static List<Animals> getAllAnimals() {
+        String sql = "SELECT * FROM animals";
+        try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Animals.class);
         }
+
 
     }
 
