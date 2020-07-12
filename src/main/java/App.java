@@ -55,12 +55,13 @@ public class App {
 
         post("/endangered",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            String animalname=request.queryParams("animalname");
+            String animalname = request.queryParams("animalname");
             String location = request.queryParams("location");
             String age= request.queryParams("age");
             String health = request.queryParams("health");
            EndangeredAnimals endangered = new EndangeredAnimals(animalname,location,age,health);
             endangered.save(animalname,location,age,health);
+            model.put("endangered",endangered);
             response.redirect("/endangered");
             return  null;
         },new HandlebarsTemplateEngine());
@@ -71,6 +72,38 @@ public class App {
             model.put("endangered",endangeredAnimals);
             return  new ModelAndView(model,"endangered.hbs");
         }),new HandlebarsTemplateEngine());
+
+        get("/animals/new",((request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            List<Rangers> rangers =Rangers.getAllRangers() ;
+            model.put("rangers",rangers);
+            return new ModelAndView(model,"form.hbs");
+        }),new HandlebarsTemplateEngine());
+
+        get("/endangered/new",((request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            List<Rangers> rangers =Rangers.getAllRangers() ;
+            model.put("rangers",rangers);
+            return new ModelAndView(model,"form.hbs");
+        }),new HandlebarsTemplateEngine());
+
+        get("/animals/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int animalToDelete = Integer.parseInt(req.params(":id"));
+            Animals.find(animalToDelete).delete(animalToDelete);
+            res.redirect("/animals");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+        get("/endangered/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int endangeredToDelete = Integer.parseInt(req.params(":id"));
+            EndangeredAnimals.find(endangeredToDelete).delete(endangeredToDelete);
+            res.redirect("/endangered");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+
 
 
 

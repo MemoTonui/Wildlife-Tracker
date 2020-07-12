@@ -3,13 +3,6 @@ import org.sql2o.Connection;
 import java.util.List;
 
 public class EndangeredAnimals extends Animals {
-
-  /*  public static final String ILL="Ill";
-    public static final String HEALTHY="Healthy";
-    public static final String OKAY="Okay";
-    public static final String NEW_BORN= "newborn";
-    public static final String YOUNG= "young";
-    public static final String ADULT = "adult";*/
     private String age;
     private String health;
 
@@ -37,16 +30,20 @@ public class EndangeredAnimals extends Animals {
     }
 
 
-    public void save(String animalName,String location,String age,String health){
+    public void save(String animalname,String location,String age,String health){
         try(Connection con =DB.sql2o.open()) {
-            String sql = "INSERT INTO endangered (animalname,location,age,health) VALUES (:animalname,:location,:age,:health)";
+            String sql = "INSERT INTO endangered (animalname,location,age,health,sightingtime) VALUES (:animalname,:location,:age,:health,now())";
+            if (age ==""||animalname==""||location==""||health==""){
+                throw new UnsupportedOperationException("Please Fill in all blanks");
+            }
+            else {
             this.id = (int) con.createQuery(sql,true)
                     .addParameter("animalname",this.animalname)
                     .addParameter("location",this.location)
                     .addParameter("age",this.age)
                     .addParameter("health",this.health)
                     .executeUpdate().getKey();
-
+            }
         }
 
     }
@@ -57,6 +54,25 @@ public class EndangeredAnimals extends Animals {
             return con.createQuery(sql).executeAndFetch(EndangeredAnimals.class);
         }
 
+    }
+
+    public static EndangeredAnimals find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM endangered where id=:id";
+            EndangeredAnimals endangeredAnimals = con.createQuery(sql)
+                    .addParameter("id",id)
+                    .executeAndFetchFirst(EndangeredAnimals.class);
+            return endangeredAnimals;
+        }
+    }
+
+    public void delete(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE FROM endangered WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeUpdate();
+        }
     }
 
 

@@ -9,6 +9,8 @@
       <th scope="col">Animal id</th>
       <th scope="col">Animal Name</th>
       <th scope="col">Zone Sighted</th>
+      <th scope="col">Time of Sight</th>
+      <th scope="col"> </th>
       
     </tr>
   </thead>
@@ -19,12 +21,15 @@
       <th scope="row">{{id}}</th>
       <td>{{animalname}}</td>
       <td>{{location}}</td>
+      <td>{{sightingtime}}</td>
+      <td><a href="/animals/{{id}}/delete"><span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span></a></td>
       
     </tr>
 {{/each}}
   </tbody>
   {{/if}}
     </table>
+    <button class="btn btn-info btn-block"><a href="/animals/new">ADD ANIMALS</a></button>
 
 </div>
 

@@ -11,7 +11,7 @@ public class EndangeredAnimalsTest {
     @Test
     public void EndangeredAnimals_InstantiatesWithName() {
         EndangeredAnimals animal = new EndangeredAnimals("Owl", "Zone A","young","ill");
-        assertEquals("Owl",animal.getName());
+        assertEquals("Owl",animal.getAnimalname());
     }
 
     @Test

@@ -63,8 +63,8 @@ public class RangersTest {
     public void getAnimals_retrievesAllAnimalsFromDatabase() {
         Rangers ranger = new Rangers("Linda","linda@linda.com");
         ranger.save();
-        Animals animal = new Animals("Monkey",ranger.getId());
-        animal.save();
+        Animals animal = new Animals("Monkey","Zone A");
+        animal.save("Monkey","Zone A");
         Object[] animals = new Object[] { animal };
         assertTrue(ranger.getAnimals().containsAll(Arrays.asList(animals)));
     }
