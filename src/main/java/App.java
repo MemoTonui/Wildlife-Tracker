@@ -39,7 +39,7 @@ public class App {
         //route to filling the form
         get("/form",((request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            List<Rangers> rangers =Rangers.getAllRangers() ;
+            List<Rangers> rangers = Rangers.getAllRangers() ;
             model.put("rangers",rangers);
             return  new ModelAndView(model,"form.hbs");
         }),new HandlebarsTemplateEngine());

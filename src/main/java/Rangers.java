@@ -56,11 +56,11 @@ public class Rangers {
 
     //Method For getting all rangers
     public static List<Rangers> getAllRangers() {
-
         try (Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM rangers";
             return con.createQuery(sql).executeAndFetch(Rangers.class);
         }
+
 
     }
 
