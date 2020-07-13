@@ -58,7 +58,7 @@ public class Rangers {
     public static List<Rangers> getAllRangers() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM rangers";
-            return con.createQuery(sql).executeAndFetch(Rangers.class);
+            return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(Rangers.class);
         }
 
 

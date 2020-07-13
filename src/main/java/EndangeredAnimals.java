@@ -52,7 +52,7 @@ public class EndangeredAnimals extends Animals {
 
         try(Connection con =DB.sql2o.open()){
             String sql= "SELECT * FROM endangered";
-            return con.createQuery(sql).executeAndFetch(EndangeredAnimals.class);
+            return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(EndangeredAnimals.class);
         }
 
     }

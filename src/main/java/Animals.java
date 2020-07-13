@@ -85,6 +85,7 @@ public class Animals {
             String sql = "SELECT * FROM animals where id=:id";
             Animals animals = con.createQuery(sql)
                     .addParameter("id",id)
+                    .throwOnMappingFailure(false)
                     .executeAndFetchFirst(Animals.class);
             return animals;
         }
