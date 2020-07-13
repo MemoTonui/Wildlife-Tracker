@@ -62,8 +62,9 @@ public class Animals {
 
     }
     public static List<Animals> getAllAnimals() {
-        String sql = "SELECT * FROM animals";
+
         try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals";
             return con.createQuery(sql).executeAndFetch(Animals.class);
         }
 
