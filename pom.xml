@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>10.12</version>
+            <version>42.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.sql2o</groupId>
@@ -80,7 +80,7 @@
                     <!-- Change this to YOUR application name! -->
                     <appName>wildlifet</appName>
                     <processTypes>
-                        <web> java $JAVA_OPTS -cp target/classes:target/dependency/* App</web>
+                        <web> java -jar target/my-app-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>

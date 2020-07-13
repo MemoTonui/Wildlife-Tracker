@@ -52,14 +52,14 @@ public class AnimalsTest {
         assertTrue(Animals.getAllAnimals().get(1).equals(animal2));
     }
 
-    @Test
+  /*  @Test
     public void delete_deletesAnima_true() {
         Animals animal = new Animals("Monkey", "Zone A");
         animal.save("Monkey", "Zone A");
         animal.delete(animal.getId());
         assertEquals(0, Animals.getAllAnimals().size());
     }
-
+*/
     @Test
     public void save_recordsTimeOfRecordInDatabase() {
         Animals animal = new Animals("Monkey", "Zone A");

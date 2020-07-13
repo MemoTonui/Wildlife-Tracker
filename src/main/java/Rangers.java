@@ -63,13 +63,5 @@ public class Rangers {
 
     }
 
-    public List<Object> getAnimals() {
-        List<Object> allAnimals = new ArrayList<Object>();
-        try(Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM animals WHERE rangerId=:id";
-            List<Animals> animals = con.createQuery(sql).addParameter("id", this.id).executeAndFetch(Animals.class);
-            getAnimals().addAll(allAnimals);
-        }
-    return allAnimals;
-    }
+
 }

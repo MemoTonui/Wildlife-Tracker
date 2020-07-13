@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+    padding: 10px;
+    margin:10px;
+    color: white;
+}
+.nav{
+    background-color: rgb(100, 4, 4);
+}
+h1{
+    font-family: 'Bad Script', cursive;
+    letter-spacing: 0.5em;
+    font-size: 50px;
+    font-weight: 900;
+}
+.font{
+    font-family: 'Bad Script', cursive; 
+    letter-spacing: 0.3em;
+    font-size: 20px;
+}
+a{
+    color: white;
+}
+p{
+    font-size: 16px;
+    line-height: 3em;
+}
+h2{
+    letter-spacing: 0.3em;
+}
+ul{
+    margin-left:200px;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-image: url("../Images/elephant.jpg");
+    background-color: rgba(0,0,0,0.7);
+    background-blend-mode: darken;
+    background-position: 80% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:500px;
+    position: relative;
+}
+.btn {
+    width: 40%;
+    margin-left: 0px;
+    margin-top: 50px;
+}
+a:hover{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: unset;
+    letter-spacing: 0.2em;
+}
+.con {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 600px;
+    padding: 16px;
+    background-color: white;
+    color: black;
+  }
+  
+  /* Full-width input fields */
+  input[type=text],select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus,select:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  .card{
+      margin-top: 100px;
+      float: left;
+      margin-right: 30px;
+      background-color: rgba(255,255,255,0.8);
+  }
+  
+  
+

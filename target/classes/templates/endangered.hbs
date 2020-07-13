@@ -1,0 +1,42 @@
+{{#partial "title"}}
+{{/partial}}
+{{#partial "content"}}
+<div class="container">
+<h2>ENDANGERED SPECIES SIGHTINGS</h2> <hr>
+    <table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Animal id</th>
+      <th scope="col">Animal Name</th>
+      <th scope="col">Zone Sighted</th>
+      <th scope="col">Age</th>
+      <th scope="col">Health</th>
+      <th scope="col">Time of Sight</th>
+      <th scope="col"> </th>
+
+      
+    </tr>
+  </thead>
+  {{#if endangered}}
+  <tbody>
+      {{#each endangered}}
+    <tr>
+      <th scope="row">{{id}}</th>
+      <td>{{animalname}}</td>
+      <td>{{location}}</td>
+      <td>{{age}}</td>
+      <td>{{health}}</td>
+      <td>{{sightingtime}}</td>
+      <td><a href="/endangered/{{id}}/delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+      
+      
+    </tr>
+{{/each}}
+  </tbody>
+  {{/if}}
+    </table>
+    <button class="btn btn-info"><a href="/endangered/new">ADD ENDANGERED ANIMALS</a></button>
+</div>
+{{/partial}}
+
+{{> layout.hbs}}
